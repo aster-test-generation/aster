@@ -1,0 +1,66 @@
+import unittest
+from ansible.plugins.filter.core import FilterModule
+
+
+class TestFilterModule(unittest.TestCase):
+    def setUp(self):
+        self.filter_module = FilterModule()
+
+    def test_init(self):
+        self.assertIsInstance(self.filter_module, FilterModule)
+
+    def test_filters(self):
+        filters = self.filter_module.do_groupby()
+        self.assertIsInstance(filters, dict)
+        self.assertIn('groupby', filters)
+        self.assertIn('b64decode', filters)
+        self.assertIn('b64encode', filters)
+        self.assertIn('to_uuid', filters)
+        self.assertIn('to_json', filters)
+        self.assertIn('to_nice_json', filters)
+        self.assertIn('from_json', filters)
+        self.assertIn('to_yaml', filters)
+        self.assertIn('to_nice_yaml', filters)
+        self.assertIn('from_yaml', filters)
+        self.assertIn('from_yaml_all', filters)
+        self.assertIn('basename', filters)
+        self.assertIn('dirname', filters)
+        self.assertIn('expanduser', filters)
+        self.assertIn('expandvars', filters)
+        self.assertIn('path_join', filters)
+        self.assertIn('realpath', filters)
+        self.assertIn('relpath', filters)
+        self.assertIn('splitext', filters)
+        self.assertIn('win_basename', filters)
+        self.assertIn('win_dirname', filters)
+        self.assertIn('win_splitdrive', filters)
+        self.assertIn('fileglob', filters)
+        self.assertIn('bool', filters)
+        self.assertIn('to_datetime', filters)
+        self.assertIn('strftime', filters)
+        self.assertIn('quote', filters)
+        self.assertIn('md5', filters)
+        self.assertIn('sha1', filters)
+        self.assertIn('checksum', filters)
+        self.assertIn('password_hash', filters)
+        self.assertIn('hash', filters)
+        self.assertIn('regex_replace', filters)
+        self.assertIn('regex_escape', filters)
+        self.assertIn('regex_search', filters)
+        self.assertIn('regex_findall', filters)
+        self.assertIn('ternary', filters)
+        self.assertIn('random', filters)
+        self.assertIn('shuffle', filters)
+        self.assertIn('mandatory', filters)
+        self.assertIn('comment', filters)
+        self.assertIn('type_debug', filters)
+        self.assertIn('combine', filters)
+        self.assertIn('extract', filters)
+        self.assertIn('flatten', filters)
+        self.assertIn('dict2items', filters)
+        self.assertIn('items2dict', filters)
+        self.assertIn('subelements', filters)
+        self.assertIn('split', filters)
+
+if __name__ == '__main__':
+    unittest.main()

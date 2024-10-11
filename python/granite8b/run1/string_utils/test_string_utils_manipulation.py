@@ -1,0 +1,48 @@
+import unittest
+from string_utils.manipulation import camel_case_to_snake
+
+
+class TestRomanNumbers(unittest.TestCase):
+    def test_roman_encode(self):
+        self.assertEqual(roman_encode(1), 'I')
+        self.assertEqual(roman_encode(2), 'II')
+        self.assertEqual(roman_encode(3), 'III')
+        self.assertEqual(roman_encode(4), 'IV')
+        self.assertEqual(roman_encode(5), 'V')
+        self.assertEqual(roman_encode(6), 'VI')
+        self.assertEqual(roman_encode(7), 'VII')
+        self.assertEqual(roman_encode(8), 'VIII')
+        self.assertEqual(roman_encode(9), 'IX')
+        self.assertEqual(roman_encode(10), 'X')
+        self.assertEqual(roman_encode(11), 'XI')
+        self.assertEqual(roman_encode(12), 'XII')
+        self.assertEqual(roman_encode(13), 'XIII')
+        self.assertEqual(roman_encode(14), 'XIV')
+        self.assertEqual(roman_encode(15), 'XV')
+        self.assertEqual(roman_encode(16), 'XVI')
+        self.assertEqual(roman_encode(17), 'XVII')
+        self.assertEqual(roman_encode(18), 'XVIII')
+        self.assertEqual(roman_encode(19), 'XIX')
+        self.assertEqual(roman_encode(20), 'XX')
+        self.assertEqual(roman_encode(30), 'XXX')
+        self.assertEqual(roman_encode(40), 'XL')
+        self.assertEqual(roman_encode(50), 'L')
+        self.assertEqual(roman_encode(60), 'LX')
+        self.assertEqual(roman_encode(70), 'LXX')
+        self.assertEqual(roman_encode(80), 'LXXX')
+        self.assertEqual(roman_encode(90), 'XC')
+        self.assertEqual(roman_encode(100), 'C')
+        self.assertEqual(roman_encode(200), 'CC')
+        self.assertEqual(roman_encode(300), 'CCC')
+        self.assertEqual(roman_encode(400), 'CD')
+        self.assertEqual(roman_encode(500), 'D')
+        self.assertEqual(roman_encode(600), 'DC')
+        self.assertEqual(roman_encode(700), 'DCC')
+        self.assertEqual(roman_encode(800), 'DCCC')
+        self.assertEqual(roman_encode(900), 'CM')
+        self.assertEqual(roman_encode(1000), 'M')
+        self.assertEqual(roman_encode(2000), 'MM')
+        self.assertEqual(roman_encode(3000), 'MMM')
+
+if __name__ == '__main__':
+    unittest.main()

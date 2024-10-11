@@ -1,0 +1,55 @@
+import unittest
+from ansible.module_utils.six import PY2, text_type
+from ansible.module_utils.compat.version import LooseVersion
+from ansible.module_utils.basic import AnsibleModule
+from ansible.module_utils.common.locale import get_best_parsable_locale
+from ansible.module_utils.common.respawn import has_respawned, probe_interpreters_for_module, respawn_module
+from ansible.module_utils.yumdnf import YumDnf, yumdnf_argument_spec
+
+
+class TestDnfModule(unittest.TestCase):
+    def test_init(self):
+        module = AnsibleModule( yumdnf_argument_spec() )
+        dnf = DnfModule(module)
+        self.assertTrue(dnf)
+
+    def test_ensure_dnf(self):
+        module = AnsibleModule( yumdnf_argument_spec )
+        dnf = DnfModule(module)
+        dnf._ensure_dnf()
+        self.assertTrue(dnf.dnf)
+
+    def test_is_module_installed(self):
+        module = AnsibleModule( yumdnf_argument_spec )
+        dnf = DnfModule(module)
+        self.assertFalse(dnf._is_module_installed(''))
+        self.assertFalse(dnf._is_module_installed(None))
+        self.assertFalse(dnf._is_module_installed('module_spec'))
+
+    def test_get_lockfile(self):
+        module = AnsibleModule( yumdnf_argument_spec )
+        dnf = DnfModule(module)
+        self.assertEqual(dnf._get_lockfile(), '/var/cache/dnf/*_lock.pid')
+
+    def test_get_pkg_mgr_name(self):
+        module = AnsibleModule( yumdnf_argument_spec )
+        dnf = DnfModule(module)
+        self.assertEqual(dnf._get_pkg_mgr_name(), 'dnf')
+
+    def test_get_with_modules(self):
+        module = AnsibleModule( yumdnf_argument_spec )
+        dnf = DnfModule(module)
+        self.assertFalse(dnf._get_with_modules())
+
+    def test_get_allowerasing(self):
+        module = AnsibleModule( yumdnf_argument_spec )
+        dnf = DnfModule(module)
+        self.assertFalse(dnf._get_allowerasing())
+
+    def test_get_nobest(self):
+        module = AnsibleModule( yumdnf_argument_spec )
+        dnf = DnfModule(module)
+        self.assertFalse(dnf._get_nobest())
+
+if __name__ == '__main__':
+    unittest.main()

@@ -1,0 +1,25 @@
+project_root,method coverage,branch coverage,line coverage
+/home/myeongsoo/run1/test-apps/PySnooper,88.89%,87.04%,61.95%,13.65%
+/home/myeongsoo/run1/test-apps/ansible/lib,67.54%,79.75%,32.32%,7.12%
+/home/myeongsoo/run1/test-apps/black/src,100.00%,90.74%,67.21%,25.94%
+/home/myeongsoo/run1/test-apps/codetiming,100.00%,100.00%,100.00%,20.00%
+/home/myeongsoo/run1/test-apps/cookiecutter,25.00%,90.91%,33.33%,0.00%
+/home/myeongsoo/run1/test-apps/docstring_parser,100.00%,91.67%,96.89%,79.03%
+/home/myeongsoo/run1/test-apps/flutes,95.24%,85.92%,92.86%,21.65%
+/home/myeongsoo/run1/test-apps/flutils,96.43%,91.86%,93.90%,25.52%
+/home/myeongsoo/run1/test-apps/httpie,41.10%,99.00%,23.85%,0.00%
+/home/myeongsoo/run1/test-apps/isort,100.00%,100.00%,100.00%,3.85%
+/home/myeongsoo/run1/test-apps/mimesis,98.68%,94.38%,91.24%,0.00%
+/home/myeongsoo/run1/test-apps/py-backwards,2.74%,15.29%,1.48%,0.00%
+/home/myeongsoo/run1/test-apps/pyMonet,100.00%,83.87%,91.63%,14.23%
+/home/myeongsoo/run1/test-apps/pypara,93.75%,90.32%,70.69%,7.21%
+/home/myeongsoo/run1/test-apps/python-semantic-release,58.82%,78.12%,29.84%,4.93%
+/home/myeongsoo/run1/test-apps/python-string-utils,100.00%,100.00%,100.00%,27.96%
+/home/myeongsoo/run1/test-apps/pytutils,26.56%,32.58%,18.93%,0.00%
+/home/myeongsoo/run1/test-apps/sty,100.00%,100.00%,100.00%,31.95%
+/home/myeongsoo/run1/test-apps/thefuck,100.00%,0.00%,100.00%,0.00%
+/home/myeongsoo/run1/test-apps/thonny,97.73%,97.32%,25.66%,0.00%
+/home/myeongsoo/run1/test-apps/tornado,95.45%,88.89%,76.97%,0.00%
+/home/myeongsoo/run1/test-apps/tqdm,33.33%,20.00%,18.42%,0.00%
+/home/myeongsoo/run1/test-apps/typesystem,79.41%,99.19%,85.07%,26.14%
+/home/myeongsoo/run1/test-apps/youtube-dl,71.35%,86.73%,19.54%,3.48%

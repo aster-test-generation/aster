@@ -1,0 +1,41 @@
+import unittest
+from ansible.module_utils.splitter import split_args, is_quoted, unquote
+
+
+class TestSplitter(unittest.TestCase):
+    def test_split_args(self):
+        args = "a=b c=\"foo bar\""
+        result = split_args(args)
+        self.assertEqual(result, ['a=b', 'c="foo bar"'])
+
+    def test_split_args_with_jinja2_blocks(self):
+        args = "a=b {{ foo }} c=\"{{ bar }}\""
+        result = split_args(args)
+        self.assertEqual(result, ['a=b {{ foo }}', 'c="{{ bar }}"'])
+
+    def test_split_args_with_comments(self):
+        args = "a=b {# comment #} c=\"foo bar\""
+        result = split_args(args)
+        self.assertEqual(result, ['a=b', 'c="foo bar"'])
+
+    def test_split_args_with_line_continuation(self):
+        args = "a=b\nc=\"foo bar\""
+        result = split_args(args)
+        self.assertEqual(result, ['a=b', 'c="foo bar"'])
+
+    def test_is_quoted(self):
+        self.assertTrue(is_quoted('"hello"'))
+        self.assertTrue(is_quoted("'hello'"))
+        self.assertFalse(is_quoted('hello'))
+
+    def test_unquote(self):
+        self.assertEqual(unquote('"hello"'), 'hello')
+        self.assertEqual(unquote("'hello'"), 'hello')
+        self.assertEqual(unquote('hello'), 'hello')
+
+    def test_unquote_with_invalid_input(self):
+        with self.assertRaises(ValueError):
+            unquote('hello world')
+
+if __name__ == '__main__':
+    unittest.main()

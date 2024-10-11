@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "aster"
+version = "0.1.0"
+description = "Naturalness evaluator."
+authors = ["anonymous"]
+license = "Apache 2.0"
+
+[tool.poetry.dependencies]
+python = "~3.11"
+joblib="1.4.2"
+typer = {extras = ["all"], version = "^0.9.0"}
+tqdm = {extras = ["all"], version = "^4.66.1"}
+javalang = "0.13.0"
+toml = "^0.10.2"
+nltk = "^3.8.1"
+scikit-learn = "^1.4.2"
+python-dotenv = "^1.0.1"
+cldk = {git = "https://github.com/IBM/codellm-devkit", branch = "fixing-java-and-python-issues"}
+plotly = "^5.22.0"
+
+[tool.poetry.scripts]
+aster = "aster.cli:app"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+

@@ -1,0 +1,2 @@
+public class Aster_XPathParserTokenManager_Coverage_Test_Passing {
+}

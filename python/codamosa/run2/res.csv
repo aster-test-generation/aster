@@ -1,0 +1,25 @@
+project_root,method coverage,branch coverage,line coverage
+/home/myeongsoo/aster-py-cli/test-apps/PySnooper,88.89%,89.39%,60.49%,18.55%
+/home/myeongsoo/aster-py-cli/test-apps/ansible/lib,67.73%,80.00%,32.44%,7.70%
+/home/myeongsoo/aster-py-cli/test-apps/black/src,5.66%,93.33%,6.27%,9.78%
+/home/myeongsoo/aster-py-cli/test-apps/codetiming,100.00%,100.00%,100.00%,20.00%
+/home/myeongsoo/aster-py-cli/test-apps/cookiecutter,25.00%,90.91%,33.33%,0.00%
+/home/myeongsoo/aster-py-cli/test-apps/docstring_parser,100.00%,93.75%,94.55%,79.30%
+/home/myeongsoo/aster-py-cli/test-apps/flutes,0.00%,0.00%,0.00%,0.00%
+/home/myeongsoo/aster-py-cli/test-apps/flutils,96.43%,92.31%,93.90%,32.12%
+/home/myeongsoo/aster-py-cli/test-apps/httpie,41.10%,99.12%,24.01%,0.00%
+/home/myeongsoo/aster-py-cli/test-apps/isort,100.00%,100.00%,100.00%,3.85%
+/home/myeongsoo/aster-py-cli/test-apps/mimesis,98.68%,91.67%,89.41%,0.00%
+/home/myeongsoo/aster-py-cli/test-apps/py-backwards,2.78%,41.35%,2.07%,0.00%
+/home/myeongsoo/aster-py-cli/test-apps/pyMonet,100.00%,87.01%,92.08%,16.35%
+/home/myeongsoo/aster-py-cli/test-apps/pypara,93.75%,94.12%,70.69%,7.21%
+/home/myeongsoo/aster-py-cli/test-apps/python-semantic-release,58.82%,85.42%,29.84%,4.93%
+/home/myeongsoo/aster-py-cli/test-apps/python-string-utils,100.00%,100.00%,100.00%,38.50%
+/home/myeongsoo/aster-py-cli/test-apps/pytutils,26.56%,33.33%,18.16%,0.00%
+/home/myeongsoo/aster-py-cli/test-apps/sty,100.00%,100.00%,97.98%,31.95%
+/home/myeongsoo/aster-py-cli/test-apps/thefuck,100.00%,0.00%,100.00%,0.00%
+/home/myeongsoo/aster-py-cli/test-apps/thonny,97.73%,90.71%,41.95%,0.00%
+/home/myeongsoo/aster-py-cli/test-apps/tornado,95.45%,92.05%,78.04%,0.00%
+/home/myeongsoo/aster-py-cli/test-apps/tqdm,33.33%,20.00%,18.42%,0.00%
+/home/myeongsoo/aster-py-cli/test-apps/typesystem,79.41%,99.19%,85.28%,29.80%
+/home/myeongsoo/aster-py-cli/test-apps/youtube-dl,64.52%,83.21%,17.49%,3.64%

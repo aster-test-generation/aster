@@ -1,0 +1,2 @@
+public class Aster_CharSequenceUtils_Coverage_Test_Passing {
+}

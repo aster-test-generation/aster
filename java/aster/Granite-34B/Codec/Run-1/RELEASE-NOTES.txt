@@ -1,0 +1,166 @@
+Apache Commons Codec 1.17.0 RELEASE NOTES
+-----------------------------------------
+
+The Apache Commons Codec component contains encoder and decoders for
+various formats such as Base16, Base32, Base64, digest, and Hexadecimal. In addition to these
+widely used encoders and decoders, the codec package also maintains a
+collection of phonetic encoding utilities.
+
+Feature and fix release. Requires a minimum of Java 8.
+
+
+New features
+------------
+
+*             Add override org.apache.commons.codec.language.bm.Rule.PhonemeExpr.size(). Thanks to Gary Gregory.
+*             Add support for Base64 custom alphabets #266. Thanks to Chris Kocel, Gary Gregory.
+*             Add Base64.Builder (allows custom alphabets). Thanks to Gary Gregory.
+*             Add Base32.Builder (allows custom alphabets). Thanks to Gary Gregory.
+*             Add Base64 support for a custom padding byte (like Base32). Thanks to Gary Gregory.
+
+Fixed Bugs
+----------
+
+* CODEC-320:  Wrong output of DoubleMetaphone in 1.16.1. Thanks to Martin Frydl, Gary Gregory.
+*             Optimize memory allocation in PhoneticEngine. Thanks to Gary Gregory.
+*             BCodec and QCodec encode() methods throw UnsupportedCharsetException instead of EncoderException. Thanks to Gary Gregory.
+*             Set Javadoc link to latest Java API LTS version. Thanks to Gary Gregory.
+*             Base32 constructor fails-fast with a NullPointerException if the custom alphabet array is null. Thanks to Gary Gregory.
+*             Base32 constructor makes a defensive copy of the line separator array. Thanks to Gary Gregory.
+*             Base64 constructor makes a defensive copy of the line separator array. Thanks to Gary Gregory.
+*             Base64 constructor makes a defensive copy of a custom alphabet array. Thanks to Gary Gregory.
+
+Changes
+-------
+
+*             Bump org.apache.commons:commons-parent from 66 to 69 #250, #261. Thanks to Dependabot, Gary Gregory.
+*             Bump commons-io:commons-io from 2.15.1 to 2.16.1 #258, #265. Thanks to Dependabot, Gary Gregory.
+
+
+For complete information on Apache Commons Codec, including instructions on how to submit bug reports,
+patches, or suggestions for improvement, see the Apache Commons Codec website:
+
+https://commons.apache.org/proper/commons-codec/
+
+Download page: https://commons.apache.org/proper/commons-codec/download_codec.cgi
+
+---------------------------------------------------------------------------------
+
+Apache Commons Codec 1.16.1 RELEASE NOTES
+-----------------------------------------
+
+The Apache Commons Codec component contains encoder and decoders for
+various formats such as Base16, Base32, Base64, digest, and Hexadecimal. In addition to these
+widely used encoders and decoders, the codec package also maintains a
+collection of phonetic encoding utilities.
+
+Feature and fix release. Requires a minimum of Java 8.
+
+New features
+------------
+
+*             Add Maven property project.build.outputTimestamp for build reproducibility. Thanks to Gary Gregory.
+
+Fixed Bugs
+----------
+
+* CODEC-295:  Test clean ups. Thanks to Gary Gregory.
+*             [StepSecurity] ci: Harden GitHub Actions #187. Thanks to step-security-bot, Gary Gregory.
+* CODEC-295:  Correct error in Base64 Javadoc #188. Thanks to Evan Saulpaugh.
+* CODEC-295:  Add minimum Java version in changes.xml #186. Thanks to Olivier Jaquemet, Gary Gregory.
+* CODEC-310:  Documentation update for the org.apache.commons.codec.digest.* package #208. Thanks to Yakov Shafranovich.
+*             Precompile regular expression in UnixCrypt.crypt(byte[], String). Thanks to Gary Gregory.
+* CODEC-315:  Fix possible IndexOutOfBoundException in PhoneticEngine.encode method #223. Thanks to Arthur Chan, Gary Gregory.
+* CODEC-313:  Fix possible ArrayIndexOutOfBoundsException in QuotedPrintableCodec.encodeQuotedPrintable() method #221. Thanks to Arthur Chan, Gary Gregory.
+* CODEC-312:  Fix possible StringIndexOutOfBoundException in MatchRatingApproachEncoder.encode() method #220. Thanks to Arthur Chan, Gary Gregory.
+* CODEC-311:  Fix possible ArrayIndexOutOfBoundException in RefinedSoundex.getMappingCode() #219. Thanks to Arthur Chan, Gary Gregory.
+* CODEC-314:  Fix possible IndexOutOfBoundsException in PercentCodec.insertAlwaysEncodeChars() method #222. Thanks to Arthur Chan, Gary Gregory.
+*             Deprecate UnixCrypt 0-argument constructor. Thanks to Gary Gregory.
+*             Deprecate Md5Crypt 0-argument constructor. Thanks to Gary Gregory.
+*             Deprecate Crypt 0-argument constructor. Thanks to Gary Gregory.
+*             Deprecate StringUtils 0-argument constructor. Thanks to Gary Gregory.
+*             Deprecate Resources 0-argument constructor. Thanks to Gary Gregory.
+*             Deprecate Charsets 0-argument constructor. Thanks to Gary Gregory.
+*             Deprecate CharEncoding 0-argument constructor. Thanks to Gary Gregory.
+*             Add missing version for animal-sniffer-maven-plugin. Thanks to Gary Gregory.
+
+Changes
+-------
+
+*             Bump commons-parent from 58 to 66. Thanks to Dependabot, Gary Gregory.
+*             Bump commons-lang3 from 3.12.0 to 3.14.0. Thanks to Gary Gregory.
+*             Bump commons-io from 2.13.0 to 2.15.1. Thanks to Gary Gregory.
+
+
+For complete information on Apache Commons Codec, including instructions on how to submit bug reports,
+patches, or suggestions for improvement, see the Apache Commons Codec website:
+
+https://commons.apache.org/proper/commons-codec/
+
+Download page: https://commons.apache.org/proper/commons-codec/download_codec.cgi
+
+---------------------------------------------------------------------------------
+
+              Apache Commons Codec 1.16.0
+
+The Apache Commons Codec package contains simple encoder and decoders for
+various formats such as Base64 and Hexadecimal.  In addition to these
+widely used encoders and decoders, the codec package also maintains a
+collection of phonetic encoding utilities.
+
+Feature and fix release.
+
+Changes in this version include:
+
+New features
+------------
+
+* CODEC-296:  Add support for Blake3 family of hashes. Thanks to Matt Sicker.
+*             Add github/codeql-action.
+
+Fixed Bugs
+----------
+
+* CODEC-295:  Minor improvements #67. Thanks to Arturo Bernal.
+*             Remove duplicated words from Javadocs. Thanks to James Gan.
+* CODEC-301:  Simplify assertion #84. Thanks to Alexander Pinske, Alex Herbert.
+* CODEC-300:  Simplify assertion #84. Thanks to Arturo Bernal.
+* CODEC-298:  Use Standard Charset object #82. Thanks to Arturo Bernal.
+*             Use String.contains() functions #125. Thanks to Arturo Bernal.
+*             Avoid use toString() or substring() in favor of a simplified expression #126. Thanks to Arturo Bernal.
+* CODEC-305:  Fix byte-skipping in Base16 decoding #135. Thanks to Florian.
+*             Fix several typos, improve writing in some javadocs #139. Thanks to Marc Wrobel.
+*             BaseNCodecOutputStream.eof() should not throw IOException. Thanks to Gary Gregory.
+*             Javadoc improvements and cleanups. Thanks to Gary Gregory.
+*             Deprecate BaseNCodec.isWhiteSpace(byte) and use Character.isWhitespace(int). Thanks to Gary Gregory.
+
+Changes
+-------
+
+*             Bump actions/cache from v2 to v3.0.10 #75, #99, #119, #138, #149, #152. Thanks to Dependabot, Gary Gregory.
+*             Bump actions/setup-java from v1.4.1 to 3.5.1 #60, #62, #121. Thanks to Dependabot, Gary Gregory.
+*             Bump actions/checkout from 2.3.2 to 3.1.0 #65, #98, #114, #153. Thanks to Dependabot, Gary Gregory.
+*             Bump commons-parent from 52 to 58, #147, #165, #170. Thanks to Dependabot, Gary Gregory.
+* CODEC-285:  Bump junit from 4.13.1 to 5.9.1 #76, #39, #140, #148. Thanks to Dependabot, John Patrick.
+*             Bump Java 7 to 8. Thanks to Gary Gregory.
+*             Bump japicmp-maven-plugin from 0.14.3 to 0.17.1. Thanks to Gary Gregory.
+*             Bump jacoco-maven-plugin from 0.8.5 to 0.8.8 (Fixes Java 15 builds). Thanks to Gary Gregory.
+*             Bump maven-surefire-plugin from 2.22.2 to 3.0.0-M7 #122, #134. Thanks to Gary Gregory.
+*             Bump maven-javadoc-plugin from 3.2.0 to 3.4.1. Thanks to Gary Gregory.
+*             Bump animal-sniffer-maven-plugin from 1.19 to 1.22. Thanks to Gary Gregory.
+*             Bump maven-pmd-plugin from 3.13.0 to 3.19.0, #133, #142, #145. Thanks to Gary Gregory, Dependabot.
+*             Bump pmd from 6.47.0 to 6.52.0. Thanks to Gary Gregory.
+*             Bump maven-checkstyle-plugin from 2.17 to 3.2.0 #143. Thanks to Gary Gregory.
+*             Bump checkstyle from 8.45.1 to 9.3 #97, #100, #101, #103. Thanks to Dependabot.
+*             Bump taglist-maven-plugin from 2.4 to 3.0.0 #102. Thanks to Dependabot.
+*             Bump jacoco-maven-plugin from 0.8.7 to 0.8.8. Thanks to Gary Gregory.
+
+
+For complete information on Apache Commons Codec, including instructions on how to submit bug reports,
+patches, or suggestions for improvement, see the Apache Commons Codec website:
+
+https://commons.apache.org/proper/commons-codec/
+
+Download page: https://commons.apache.org/proper/commons-codec/download_codec.cgi
+
+---------------------------------------------------------------------------------

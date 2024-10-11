@@ -1,0 +1,67 @@
+import unittest
+from youtube_dl.aes import aes_cbc_decrypt
+
+
+class TestAESFunctions(unittest.TestCase):
+    def test_mix_column(self):
+        data = [0x87, 0x6E, 0x46, 0xA6]
+        matrix = MIX_COLUMN_MATRIX
+        result = mix_column(data, matrix)
+        expected = [0x47, 0x37, 0x94, 0xED]  # Expected result based on AES mix column operation
+        self.assertEqual(result, expected)
+
+    def test_rijndael_mul(self):
+        result = rijndael_mul(0x57, 0x83)
+        expected = 0xC1  # Expected result based on Rijndael multiplication
+        self.assertEqual(result, expected)
+
+    def test_key_expansion(self):
+        key = b'\x2b\x7e\x15\x16\x28\xae\xd2\xa6\xab\xf7\xcf\x15\x88\x09\xcf\x4f'
+        result = key_expansion(key)
+        expected = [
+            [0x2b, 0x7e, 0x15, 0x16], [0x28, 0xae, 0xd2, 0xa6], [0xab, 0xf7, 0xcf, 0x15], [0x88, 0x09, 0xcf, 0x4f],
+            [0xa0, 0xfa, 0xfe, 0x17], [0x88, 0x54, 0x2c, 0xb1], [0x23, 0xa3, 0x39, 0x39], [0x2a, 0x6c, 0x76, 0x05],
+            [0xf2, 0xc2, 0x95, 0xf2], [0x7a, 0x96, 0xb9, 0x43], [0x59, 0x35, 0x80, 0x7a], [0x73, 0x59, 0xf6, 0x7f],
+            [0x3d, 0x80, 0x47, 0x7d], [0x47, 0x16, 0xfe, 0x3e], [0x1e, 0x23, 0x7e, 0x44], [0x6d, 0x7a, 0x88, 0x3b],
+            [0xef, 0x44, 0xa5, 0x41], [0xa8, 0x52, 0x5b, 0x7f], [0xb6, 0x71, 0x25, 0x3b], [0xdb, 0x0b, 0xad, 0x00],
+            [0xd4, 0xd1, 0xc6, 0xf8], [0x7c, 0x83, 0x9d, 0x87], [0xca, 0xf2, 0xb8, 0xbc], [0x11, 0xf9, 0x15, 0xbc],
+            [0x6d, 0x88, 0xa3, 0x7a], [0x11, 0x0b, 0x3e, 0xfd], [0xdb, 0xf9, 0x86, 0x41], [0xca, 0x00, 0x93, 0xfd],
+            [0x4e, 0x54, 0xf7, 0x0e], [0x5f, 0x5f, 0xc9, 0xf3], [0x84, 0xa6, 0x4f, 0xb2], [0x4e, 0xa6, 0xdc, 0x4f],
+            [0xea, 0xd2, 0x73, 0x21], [0xb5, 0x8d, 0xba, 0xd2], [0x31, 0x2b, 0xf5, 0x60], [0x7f, 0x8d, 0x29, 0x2f],
+            [0xac, 0x77, 0x66, 0xf3], [0x19, 0xfa, 0xdc, 0x21], [0x28, 0xd1, 0x29, 0x41], [0x57, 0x5c, 0x00, 0x6e],
+            [0xd0, 0x14, 0xf9, 0xa8], [0xc9, 0xee, 0x25, 0x89], [0xe1, 0x3f, 0x0c, 0xc8], [0xb6, 0x63, 0x0c, 0xa6]
+        ]
+        self.assertEqual(result, expected)
+
+    def test_aes_encrypt(self):
+        plaintext = b'\x32\x43\xf6\xa8\x88\x5a\x30\x8d\x31\x31\x98\xa2\xe0\x37\x07\x34'
+        key = b'\x2b\x7e\x15\x16\x28\xae\xd2\xa6\xab\xf7\xcf\x15\x88\x09\xcf\x4f'
+        result = aes_encrypt(plaintext, key)
+        expected = b'\x39\x25\x84\x1d\x02\xdc\x09\xfb\xdc\x11\x85\x97\x19\x6a\x0b\x32'
+        self.assertEqual(result, expected)
+
+    def test_aes_ctr_decrypt(self):
+        ciphertext = b'\x39\x25\x84\x1d\x02\xdc\x09\xfb\xdc\x11\x85\x97\x19\x6a\x0b\x32'
+        key = b'\x2b\x7e\x15\x16\x28\xae\xd2\xa6\xab\xf7\xcf\x15\x88\x09\xcf\x4f'
+        nonce = b'\x00\x00\x00\x00\x00\x00\x00\x00'
+        result = aes_ctr_decrypt(ciphertext, key, nonce)
+        expected = b'\x32\x43\xf6\xa8\x88\x5a\x30\x8d\x31\x31\x98\xa2\xe0\x37\x07\x34'
+        self.assertEqual(result, expected)
+
+    def test_aes_cbc_decrypt(self):
+        ciphertext = b'\x39\x25\x84\x1d\x02\xdc\x09\xfb\xdc\x11\x85\x97\x19\x6a\x0b\x32'
+        key = b'\x2b\x7e\x15\x16\x28\xae\xd2\xa6\xab\xf7\xcf\x15\x88\x09\xcf\x4f'
+        iv = b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+        result = aes_cbc_decrypt(ciphertext, key, iv)
+        expected = b'\x32\x43\xf6\xa8\x88\x5a\x30\x8d\x31\x31\x98\xa2\xe0\x37\x07\x34'
+        self.assertEqual(result, expected)
+
+    def test_aes_decrypt_text(self):
+        ciphertext = '3925841d02dc09fbdc118597196a0b32'
+        key = '2b7e151628aed2a6abf7cf158809cf4f'
+        result = aes_decrypt_text(ciphertext, key)
+        expected = '3243f6a8885a308d313198a2e0370734'
+        self.assertEqual(result, expected)
+
+if __name__ == '__main__':
+    unittest.main()
